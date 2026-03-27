@@ -1,0 +1,179 @@
+:root {
+            --bg: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --primary: #c81d25; /* Rojo intenso japonés */
+            --secondary: #84a98c; /* Verde wasabi de su menú */
+            --text-main: #f8f9fa;
+            --text-dim: #b0b0b0;
+            --accent: #d4af37;
+            --font: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: var(--font); 
+            background-color: var(--bg); 
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* DISEÑO DE CABECERA */
+        header {
+            padding: 25px 5%;
+            text-align: center;
+            background: #000;
+            border-bottom: 3px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-main);
+        }
+        .logo-subtitle {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* SECCIÓN HERO */
+        .hero {
+            height: 35vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1583623025817-d180a2221d0a?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.2rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+
+        /* NAVEGACIÓN RÁPIDA */
+        .quick-nav {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            background: #111;
+            padding: 15px 5%;
+            gap: 15px;
+            border-bottom: 1px solid #222;
+        }
+        .quick-nav a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .quick-nav a:hover, .quick-nav a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* MENÚ ITEMS */
+        .container { padding: 30px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            color: var(--secondary);
+            font-size: 1.4rem;
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title::after {
+            content: "";
+            height: 1px;
+            background: #333;
+            flex-grow: 1;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
+        }
+        .item:hover {
+            border-left-color: var(--primary);
+            background: #222;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .item-name { font-weight: 700; font-size: 1.1rem; color: var(--text-main); }
+        .item-price { font-weight: 800; color: var(--secondary); font-size: 1.1rem; }
+        .item-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.4; }
+
+        .tag-special {
+            background: rgba(132, 169, 140, 0.1);
+            color: var(--secondary);
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-top: 10px;
+            width: fit-content;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            padding: 60px 5% 100px 5%;
+            background: #000;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        /* BOTÓN FLOTANTE WHATSAPP */
+        .btn-wa {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #c50000;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(211, 37, 37, 0.3);
+            z-index: 1000;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.6rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
